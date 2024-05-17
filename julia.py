@@ -4,12 +4,12 @@ import argparse
 from numba import jit
 
 SAMPLES = 5000
-STEPS = 500
+STEPS = 50
 
 @jit
 def julia(step, z, c):
     z_next = np.power(z, 2) + c
-    if step < STEPS and np.abs(z_next) <= 4:
+    if step < STEPS and np.abs(z_next) <= 2:
         return julia(step+1, z_next, c)
     return step, z_next, c
 
