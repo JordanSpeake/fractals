@@ -3,8 +3,8 @@ import numpy as np
 import argparse
 from numba import jit
 
-SAMPLES = 1000
-STEPS = 25
+SAMPLES = 2500
+STEPS = 50
 
 @jit
 def mandelbrot(step, z, c):
@@ -49,8 +49,7 @@ def parse_arguments():
         return mandelbrot, [[-2.5, 1.5],[-1.5, 1.5]], "viridis_r"
     if fractal_type == "burning_ship":
         return burning_ship, [[-2.5, 1.5],[-2, 1]], "inferno_r"
-    else:
-        raise Exception
+    raise Exception
 
 def main():
     recursion_function, region, cmap = parse_arguments()
